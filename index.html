@@ -1,134 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CAS Project — Eva Tsyura & Kiara Rychen</title>
-  <meta name="description" content="CAS Project by Eva Tsyura & Kiara Rychen — a creative dumpster: pictures, art & poetry." />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CAS Project — Eva Tsyura & Kiara Rychen</title>
+<meta name="description" content="CAS Project — Eva Tsyura & Kiara Rychen. Creative dumpster: pictures, art, poetry, night photos, collage." />
 
-  <!-- Fonts: tall condensed + elegant serif + clean sans -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Bebas+Neue&family=Bodoni+Moda:wght@500;700&display=swap" rel="stylesheet">
+<!-- Tall condensed + serif + clean sans -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Bebas+Neue&family=Bodoni+Moda:wght@500;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --cream:#e9e3d8;   /* page bg (beige) */
-      --cream-2:#f5f1ea; /* pale beige */
-      --ink:#121212;     /* deep black */
-      --taupe:#6f665d;   /* muted text */
-      --line:#d9d0c3;    /* hairline */
-      --sand:#c7a27a;    /* warm accent */
-      --red:#d62b2b;     /* scribble red */
-      --max:1120px;
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0}
-    body{
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink); background:var(--cream-2); line-height:1.6;
-    }
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
+<style>
+  :root{
+    /* NOIR palette */
+    --bg:#0b0b0c;          /* page background (near black) */
+    --surface:#111114;     /* cards / panels */
+    --ink:#eeeae1;         /* main text (bone) */
+    --muted:#a7a39a;       /* secondary text */
+    --line:#232327;        /* hairline borders */
+    --accent:#e03232;      /* scribble red */
+    --accent2:#d0c7b9;     /* warm bone for chips */
+    --max:1120px;
+    --r:18px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    line-height:1.6;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
 
-    /* utility */
-    .wrap{max-width:var(--max); margin:1.2rem auto 3rem; padding:0 1rem}
-    .btn{border:1px solid var(--line); background:#fff; padding:.5rem .8rem; border-radius:999px; font-size:.85rem}
-    .caps{letter-spacing:.06em; text-transform:uppercase}
-    .condensed{font-family:"Bebas Neue", system-ui;}
-    .serif{font-family:"Bodoni Moda", serif;}
+  /* header */
+  header{position:sticky;top:0;z-index:40;background:rgba(11,11,12,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{max-width:var(--max);margin:0 auto;padding:.9rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .brand{display:flex;flex-direction:column;gap:.25rem}
+  .brand .kicker{font-family:"Bebas Neue";letter-spacing:.08em;color:var(--muted)}
+  .brand .title{font-family:"Bodoni Moda",serif;font-weight:700;font-size:1.6rem;letter-spacing:.3px}
+  .by{color:var(--muted);font-size:.95rem}
+  .links{display:flex;gap:.6rem}
+  .btn{border:1px solid var(--line);background:transparent;color:var(--ink);padding:.45rem .8rem;border-radius:999px;font-size:.85rem}
+  .btn:hover{background:#16161a}
 
-    /* header */
-    header{position:sticky; top:0; z-index:20; background:rgba(245,241,234,.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
-    .nav{max-width:var(--max); margin:0 auto; padding:.9rem 1rem; display:flex; gap:1rem; align-items:center; justify-content:space-between}
-    .brand{display:flex; flex-direction:column; gap:.25rem}
-    .brand .kicker{color:#8a7f73}
-    .brand .title{font-family:"Bodoni Moda"; font-weight:700; font-size:1.6rem; letter-spacing:.3px}
-    .by{color:#7a7167; font-size:.95rem}
-    .links{display:flex; gap:.8rem; align-items:center}
+  /* layout */
+  .wrap{max-width:var(--max);margin:1.2rem auto 3rem;padding:0 1rem}
 
-    /* hero — helmut beige card on mono bg */
-    .hero-frame{position:relative; border-radius:28px; overflow:hidden; box-shadow:0 24px 70px rgba(0,0,0,.35)}
-    .hero-bg img{width:100%; height:360px; object-fit:cover; filter:grayscale(1) contrast(1.12) brightness(.88)}
-    .helmut-card{
-      position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
-      width:min(980px,92%); background:#e7e1d7; border:12px solid #ede6dc; border-radius:10px;
-      display:grid; grid-template-columns:1.05fr .95fr; gap:1.2rem; padding:1.2rem;
-      box-shadow:0 20px 50px rgba(0,0,0,.18);
-    }
-    .helmut-card .bleed{border:1px solid #d9d0c3; overflow:hidden}
-    .helmut-card .bleed img{height:100%; object-fit:cover}
-    .helmut-meta{display:flex; flex-direction:column; justify-content:space-between}
-    .mini{display:flex; gap:.6rem; justify-content:flex-end; align-items:center; font-size:.85rem; color:#8a7f73}
-    .mini .dot{width:5px; height:5px; border-radius:50%; background:#8a7f73}
-    .h-big{
-      font-family:"Bebas Neue"; line-height:.9; letter-spacing:.02em;
-      font-size:clamp(40px,11vw,118px); color:var(--ink);
-    }
-    .cutline{font-family:"Bodoni Moda"; font-size:1.05rem; color:#6f665d}
-    .ticker{margin-top:.6rem; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:#fff; overflow:hidden}
-    .ticker-inner{display:flex; gap:2rem; white-space:nowrap; animation:mar 26s linear infinite; padding:.45rem 0}
-    @keyframes mar{to{transform:translateX(-50%)}}
-    .tick{font-family:"Bebas Neue"; letter-spacing:.06em; color:#7a6e61; font-size:1.05rem}
+  /* halftone texture helper */
+  .halftone:after{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.12;
+    background:radial-gradient(circle at 1px 1px, rgba(255,255,255,.8) 1px, transparent 1.2px) 0 0/6px 6px;
+    mix-blend-mode:overlay;
+  }
 
-    /* sections */
-    .section{margin:2.4rem 0}
-    .head{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:1rem}
-    .head h2{font-family:"Bodoni Moda"; font-size:1.6rem; margin:0}
-    .head p{color:#7a7167; margin:.2rem 0 0}
+  /* HERO — collage on black */
+  .hero{position:relative;border-radius:28px;overflow:hidden;border:1px solid var(--line);box-shadow:0 28px 80px rgba(0,0,0,.6)}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:1rem;background:var(--surface);padding:1rem}
+  .tile{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+  .tile img{width:100%;height:100%;object-fit:cover;filter:contrast(1.08) saturate(1.05)}
+  .overlay-big{position:absolute;left:6%;bottom:6%;font-family:"Bebas Neue";letter-spacing:.02em;line-height:.9;
+               font-size:clamp(42px,11vw,120px);color:#fff;text-shadow:0 14px 38px rgba(0,0,0,.6)}
+  .scrib{position:absolute;color:var(--accent);font-weight:700;transform:rotate(-8deg);
+         font-size:clamp(18px,3.2vw,28px)}
+  .scrib.small{font-size:clamp(14px,2.4vw,22px)}
+  .panel{display:flex;flex-direction:column;gap:1rem}
+  .panel-card{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:1rem}
+  .h1{font-family:"Bebas Neue";font-size:clamp(44px,9vw,110px);line-height:.9;margin:0}
+  .lead{color:var(--muted);margin:.4rem 0 0}
 
-    /* editorial grid */
-    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:1rem}
-    .card{grid-column:span 6; border:1px solid var(--line); border-radius:16px; background:#fff; overflow:hidden; position:relative; box-shadow:0 14px 38px rgba(0,0,0,.06)}
-    .card.tall{grid-column:span 12}
-    .cap{padding:1rem; border-top:1px solid var(--line)}
-    .eyebrow{font-family:"Bebas Neue"; letter-spacing:.06em; color:#8a7f73}
-    .title{font-family:"Bodoni Moda"; font-size:1.25rem; font-weight:700; margin:.15rem 0}
-    .meta{color:#7a7167; font-size:.94rem}
-    .imgbox{position:relative}
-    .imgbox img{width:100%; height:100%; object-fit:cover}
-    .imgbox .lbl{position:absolute; right:10px; bottom:10px; background:#000; color:#fff; padding:.2rem .5rem; border-radius:6px; font-family:"Bebas Neue"; letter-spacing:.06em; font-size:1rem; opacity:.9}
-    .imgbox .big{position:absolute; left:6%; top:6%; font-family:"Bebas Neue"; font-size:clamp(28px,8vw,72px); color:#fff; text-shadow:0 10px 36px rgba(0,0,0,.45); mix-blend-mode:multiply; pointer-events:none; opacity:.9}
+  .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0f0f12;overflow:hidden}
+  .ticker-inner{display:flex;gap:2rem;white-space:nowrap;animation:mar 24s linear infinite;padding:.45rem 0}
+  @keyframes mar{to{transform:translateX(-50%)}}
+  .tick{font-family:"Bebas Neue";letter-spacing:.06em;color:#b7b2a9;font-size:1.05rem}
 
-    /* halftone overlay for texture */
-    .halftone:after{
-      content:""; position:absolute; inset:0; pointer-events:none; opacity:.10;
-      background:
-        radial-gradient(circle at 1px 1px, rgba(0,0,0,.8) 1px, transparent 1.2px) 0 0/6px 6px;
-      mix-blend-mode:multiply;
-    }
+  /* sections */
+  .section{margin:2.2rem 0}
+  .head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1rem}
+  .head h2{font-family:"Bodoni Moda";font-size:1.5rem;margin:0}
+  .head p{color:var(--muted);margin:.2rem 0 0}
 
-    /* poem modal */
-    .poem{font-family:"Bodoni Moda",serif; font-size:1.06rem; line-height:1.9; white-space:pre-wrap}
-    .poem.excerpt{max-height:8.5rem; overflow:hidden; position:relative}
-    .poem.excerpt:after{content:""; position:absolute; inset:auto 0 0 0; height:3rem; background:linear-gradient(180deg, rgba(255,255,255,0), #fff)}
-    .actions{margin-top:.6rem}
-    .btn.ghost{background:#fff; border:1px solid var(--line)}
+  /* grid cards */
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+  .card{grid-column:span 6;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative;box-shadow:0 16px 46px rgba(0,0,0,.45)}
+  .card.tall{grid-column:span 12}
+  .imgbox{position:relative}
+  .imgbox img{width:100%;height:100%;object-fit:cover;filter:contrast(1.1)}
+  .imgbox .lbl{position:absolute;right:10px;bottom:10px;background:#000;color:#fff;padding:.2rem .5rem;border-radius:6px;font-family:"Bebas Neue";letter-spacing:.06em;font-size:1rem;opacity:.95}
+  .imgbox .big{position:absolute;left:6%;top:6%;font-family:"Bebas Neue";font-size:clamp(28px,8vw,72px);color:#fff;text-shadow:0 12px 40px rgba(0,0,0,.6);pointer-events:none}
+  .cap{padding:1rem;border-top:1px solid var(--line)}
+  .eyebrow{font-family:"Bebas Neue";letter-spacing:.06em;color:#bfbab0}
+  .title{font-family:"Bodoni Moda";font-size:1.22rem;font-weight:700;margin:.2rem 0}
+  .meta{color:var(--muted);font-size:.94rem}
 
-    /* noir collage section */
-    .noir{background:#0e0e10; color:#eee; border-radius:28px; padding:1.2rem; border:1px solid #1f1f22; box-shadow:0 22px 60px rgba(0,0,0,.45)}
-    .noir .row{display:grid; grid-template-columns:1.2fr 1fr; gap:1rem}
-    .noir .tile{position:relative; border-radius:16px; overflow:hidden; border:1px solid #2a2a2f}
-    .noir .tile img{width:100%; height:100%; object-fit:cover; filter:contrast(1.05)}
-    .scrib{position:absolute; color:var(--red); font-size:clamp(18px,3.2vw,30px); font-weight:700; transform:rotate(-8deg)}
-    .scrib.small{font-size:clamp(14px,2.6vw,22px)}
-    .noir .bigword{position:absolute; left:6%; bottom:8%; font-family:"Bebas Neue"; font-size:clamp(42px,11vw,120px); letter-spacing:.02em; line-height:.9; color:#fff; opacity:.92; text-shadow:0 12px 40px rgba(0,0,0,.55)}
-    .noir .panel{background:#141416; border:1px solid #24242a; border-radius:16px; padding:1rem}
+  .chip{display:inline-block;margin-top:.35rem;border:1px solid var(--line);background:#141418;color:var(--accent2);padding:.18rem .5rem;border-radius:999px;font-size:.78rem}
 
-    /* footer */
-    footer{margin:2.6rem 0 4rem; text-align:center; color:#7a7167}
+  /* poem modal */
+  .poem{font-family:"Bodoni Moda",serif;font-size:1.06rem;line-height:1.9;white-space:pre-wrap}
+  .poem.excerpt{max-height:8.5rem;overflow:hidden;position:relative}
+  .poem.excerpt:after{content:"";position:absolute;inset:auto 0 0 0;height:3rem;background:linear-gradient(180deg, rgba(15,15,18,0), #0f0f12)}
+  .actions{margin-top:.6rem}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+  .btn.ghost:hover{background:#141418}
 
-    @media(min-width:960px){
-      .card{grid-column:span 4}
-      .card.tall{grid-column:span 8}
-    }
-  </style>
+  /* noir party collage section */
+  .noir{background:#0e0e10;border:1px solid #1f1f22;border-radius:26px;padding:1.1rem;box-shadow:0 30px 90px rgba(0,0,0,.7)}
+  .noir .row{display:grid;grid-template-columns:1.25fr 1fr;gap:1rem}
+  .noir .tile{position:relative;border:1px solid #2a2a2f;border-radius:16px;overflow:hidden}
+  .noir .tile img{width:100%;height:100%;object-fit:cover;filter:contrast(1.08) saturate(1.05)}
+  .noir .bigword{position:absolute;left:6%;bottom:8%;font-family:"Bebas Neue";font-size:clamp(42px,11vw,120px);letter-spacing:.02em;line-height:.9;color:#fff;opacity:.95;text-shadow:0 16px 48px rgba(0,0,0,.7)}
+  .noir .panel{background:#141416;border:1px solid #24242a;border-radius:16px;padding:1rem}
+  .noir .scrib{color:var(--accent)}
+
+  footer{margin:2.6rem 0 4rem;text-align:center;color:var(--muted)}
+  @media(min-width:960px){ .card{grid-column:span 4} .card.tall{grid-column:span 8} }
+</style>
 </head>
 <body>
-  <!-- header -->
   <header>
     <nav class="nav">
       <div class="brand">
-        <div class="kicker caps condensed">creative dumpster</div>
+        <div class="kicker">CREATIVE DUMPSTER</div>
         <div class="title">CAS Project</div>
         <div class="by">by <strong>Eva Tsyura</strong> & <strong>Kiara Rychen</strong> — pictures · art · poetry · anything creative</div>
       </div>
@@ -141,39 +133,34 @@
   </header>
 
   <main class="wrap">
-
-    <!-- HERO: Helmut-style beige card over mono bg -->
+    <!-- HERO (NOIR collage) -->
     <section class="hero">
-      <div class="hero-frame">
-        <div class="hero-bg halftone">
+      <div class="hero-grid">
+        <!-- left large image -->
+        <div class="tile halftone">
           <img src="https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=2000&auto=format&fit=crop" alt="b&w background">
+          <div class="overlay-big">CAS</div>
+          <div class="scrib" style="left:8%;top:10%">♥</div>
+          <div class="scrib small" style="right:10%;top:16%">flash!</div>
         </div>
 
-        <div class="helmut-card">
-          <div class="bleed">
-            <img src="https://images.unsplash.com/photo-1506812574058-fc75fa93fead?q=80&w=1600&auto=format&fit=crop" alt="b&w portrait">
+        <!-- right column: mini card + copy -->
+        <div class="panel">
+          <div class="tile">
+            <img src="https://images.unsplash.com/photo-1506812574058-fc75fa93fead?q=80&w=1200&auto=format&fit=crop" alt="portrait">
+            <div class="scrib small" style="left:10%;top:10%">*kiss*</div>
           </div>
-
-          <div class="helmut-meta">
-            <div style="display:flex; justify-content:space-between; align-items:center">
-              <span class="caps condensed" style="color:#8a7f73">Eva & Kiara</span>
-              <div class="mini"><span>menu</span><span class="dot"></span><span>about</span></div>
-            </div>
-
-            <div>
-              <div class="h-big condensed">CAS</div>
-              <div class="cutline">Cigar-smoke lighting, soft grain, serif captions. This site is our calm, beige side — editorial layouts and giant condensed headlines.</div>
-            </div>
-
-            <div class="caps condensed" style="font-size:.95rem; color:#8a7f73">1997 • Journal • Creative Industry</div>
+          <div class="panel-card">
+            <h1 class="h1">PARTY GIRL • NOIR</h1>
+            <p class="lead">Night photos, lipstick on glass, scribbles in red, giant condensed headlines. This is the loud side of our <em>CAS Project</em>.</p>
           </div>
         </div>
       </div>
 
       <div class="ticker">
         <div class="ticker-inner">
-          <div class="tick">editorial • helmut mood • serif headlines • condensed labels • halftone texture •</div>
-          <div class="tick">editorial • helmut mood • serif headlines • condensed labels • halftone texture •</div>
+          <div class="tick">noir • collage • big type on photos • red scribbles • flash • film grain •</div>
+          <div class="tick">noir • collage • big type on photos • red scribbles • flash • film grain •</div>
         </div>
       </div>
     </section>
@@ -181,47 +168,50 @@
     <!-- FEATURED WORK -->
     <section id="work" class="section">
       <div class="head">
-        <h2 class="serif">Featured work</h2>
+        <h2>Featured work</h2>
         <p>Fresh dumps from class & weekends</p>
       </div>
 
       <div class="grid">
-        <article class="card halftone">
+        <article class="card">
           <div class="imgbox">
             <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1600&auto=format&fit=crop" alt="portrait">
-            <div class="lbl caps condensed">ART</div>
-            <div class="big condensed bigword" style="position:absolute;left:6%;top:6%;font-size:clamp(28px,8vw,72px);">FRECKLES</div>
+            <div class="lbl">ART</div>
+            <div class="big">FRECKLES</div>
           </div>
           <div class="cap">
-            <div class="eyebrow caps condensed">portrait study</div>
-            <div class="title serif">Freckles in soft light</div>
+            <div class="eyebrow">portrait study</div>
+            <div class="title">Freckles in soft light</div>
             <div class="meta">Eva · charcoal + digital grain</div>
+            <span class="chip">collage</span> <span class="chip">bone serif</span>
           </div>
         </article>
 
-        <article class="card halftone">
+        <article class="card">
           <div class="imgbox">
             <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1600&auto=format&fit=crop" alt="notes">
-            <div class="lbl caps condensed">NOTES</div>
-            <div class="big condensed bigword" style="position:absolute;left:6%;top:6%;font-size:clamp(28px,8vw,72px);">INK</div>
+            <div class="lbl">NOTES</div>
+            <div class="big">INK</div>
           </div>
           <div class="cap">
-            <div class="eyebrow caps condensed">sketchbook</div>
-            <div class="title serif">Cream & ink compositions</div>
+            <div class="eyebrow">sketchbook</div>
+            <div class="title">Cream & ink compositions</div>
             <div class="meta">Kiara · mixed media</div>
+            <span class="chip">scribbles</span> <span class="chip">editorial</span>
           </div>
         </article>
 
-        <article class="card tall halftone">
+        <article class="card tall">
           <div class="imgbox">
             <img src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=2000&auto=format&fit=crop" alt="texture">
-            <div class="lbl caps condensed">COLLAGE</div>
-            <div class="big condensed bigword" style="position:absolute;left:6%;top:6%;font-size:clamp(36px,9vw,96px);">MILK</div>
+            <div class="lbl">COLLAGE</div>
+            <div class="big">MILK</div>
           </div>
           <div class="cap">
-            <div class="eyebrow caps condensed">collage</div>
-            <div class="title serif">Milk bath textures</div>
+            <div class="eyebrow">series</div>
+            <div class="title">Milk bath textures</div>
             <div class="meta">Eva & Kiara</div>
+            <span class="chip">halftone</span> <span class="chip">grain</span>
           </div>
         </article>
       </div>
@@ -230,15 +220,15 @@
     <!-- POEMS -->
     <section id="poems" class="section">
       <div class="head">
-        <h2 class="serif">Poems</h2>
+        <h2>Poems</h2>
         <p>Short pieces — open to read full</p>
       </div>
 
       <div class="grid">
         <article class="card">
           <div class="cap">
-            <div class="eyebrow caps condensed">poem</div>
-            <div class="title serif">after midnight</div>
+            <div class="eyebrow">poem</div>
+            <div class="title">after midnight</div>
             <div class="poem excerpt">the coast hums in sepia
 car radio tasting like cherry
 we press our names into wet air
@@ -252,8 +242,8 @@ and the moon wears a velvet bow…</div>
 
         <article class="card">
           <div class="cap">
-            <div class="eyebrow caps condensed">poem</div>
-            <div class="title serif">bow on a breezy day</div>
+            <div class="eyebrow">poem</div>
+            <div class="title">bow on a breezy day</div>
             <div class="poem excerpt">today my hair forgets to stay
 so i let the wind dress me.
 a ribbon learns my name
@@ -263,7 +253,7 @@ and ties the hours together…</div>
         </article>
       </div>
 
-      <!-- full poems (hidden templates) -->
+      <!-- hidden full poems -->
       <template id="poem-1">the coast hums in sepia
 car radio tasting like cherry
 we press our names into wet air
@@ -292,30 +282,29 @@ i promise to show up
 for the gentle things.</template>
     </section>
 
-    <!-- NOIR PARTY COLLAGE (black section with scribbles) -->
+    <!-- NOIR PARTY COLLAGE -->
     <section class="section noir" id="photos">
       <div class="head" style="margin-bottom:.8rem">
-        <h2 class="serif" style="color:#eee">Noir collage</h2>
-        <p style="color:#b9b9b9">Flash, scribbles, stickers, chaos — like your inspo</p>
+        <h2>Noir collage</h2>
+        <p>Flash, scribbles, stickers, chaos — the party page</p>
       </div>
 
       <div class="row">
         <div class="tile halftone">
           <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1800&auto=format&fit=crop" alt="party 1">
-          <div class="bigword condensed">NIGHT</div>
-          <div class="scrib" style="left:8%; top:10%">♡</div>
-          <div class="scrib small" style="right:10%; top:18%">* click * </div>
-          <div class="scrib small" style="left:16%; bottom:12%">diablo →</div>
+          <div class="bigword">NIGHT</div>
+          <div class="scrib" style="left:8%;top:10%">♡</div>
+          <div class="scrib small" style="right:10%;top:18%">more ›</div>
         </div>
 
         <div class="panel">
           <div class="tile" style="margin-bottom:1rem">
             <img src="https://images.unsplash.com/photo-1531853121101-cb86b008c7f2?q=80&w=1200&auto=format&fit=crop" alt="party 2">
-            <div class="scrib" style="left:8%; top:8%">♥</div>
+            <div class="scrib" style="left:10%;top:10%">*click*</div>
           </div>
           <div class="tile">
             <img src="https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=1200&auto=format&fit=crop" alt="party 3">
-            <div class="scrib small" style="right:10%; bottom:10%">more ›</div>
+            <div class="scrib small" style="right:8%;bottom:10%">diablo →</div>
           </div>
         </div>
       </div>
@@ -327,14 +316,13 @@ for the gentle things.</template>
   </main>
 
   <!-- modal -->
-  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Preview"
-       style="position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.55); z-index:50">
-    <div class="modal-box" style="background:#fff; border-radius:18px; max-width:min(900px,92vw); max-height:85vh; overflow:auto; box-shadow:0 24px 70px rgba(0,0,0,.35)">
-      <div class="modal-head" style="display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:.8rem 1rem; border-bottom:1px solid #eee">
-        <strong id="modalTitle">Preview</strong>
-        <button id="close" style="border:1px solid #e5e5e5; background:#fff; border-radius:10px; padding:.4rem .7rem; cursor:pointer">Close</button>
+  <div id="modal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.65);z-index:60">
+    <div style="background:#0f0f12;color:#efece5;border:1px solid #2a2a2f;border-radius:16px;max-width:min(900px,92vw);max-height:85vh;overflow:auto;box-shadow:0 28px 80px rgba(0,0,0,.7)">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.8rem 1rem;border-bottom:1px solid #222">
+        <strong id="modalTitle">Poem</strong>
+        <button id="close" class="btn">Close</button>
       </div>
-      <div class="modal-body" id="modalBody" style="padding:1rem"></div>
+      <div id="modalBody" style="padding:1rem"></div>
     </div>
   </div>
 
@@ -344,21 +332,19 @@ for the gentle things.</template>
 
     // poem modal
     const modal = document.getElementById('modal');
-    const modalBody = document.getElementById('modalBody');
-    const modalTitle = document.getElementById('modalTitle');
-    document.getElementById('close').onclick = ()=> modal.classList.remove('open');
-    modal.addEventListener('click', e=>{ if(e.target===modal) modal.classList.remove('open'); });
+    const body = document.getElementById('modalBody');
+    const title = document.getElementById('modalTitle');
+    document.getElementById('close').onclick = ()=> modal.style.display='none';
+    modal.addEventListener('click', e=>{ if(e.target===modal) modal.style.display='none'; });
 
     document.querySelectorAll('[data-open]').forEach(btn=>{
       btn.addEventListener('click', ()=>{
         const id = btn.getAttribute('data-open');
         const tpl = document.getElementById(id);
         if(!tpl) return;
-        const title = btn.closest('.cap').querySelector('.title')?.textContent || 'Poem';
-        modalTitle.textContent = title;
-        modalBody.innerHTML = `<div class="poem">${tpl.innerHTML.trim()}</div>`;
-        modal.classList.add('open');
-        modal.style.display = 'flex';
+        title.textContent = btn.closest('.cap').querySelector('.title')?.textContent || 'Poem';
+        body.innerHTML = `<div class="poem">${tpl.innerHTML.trim()}</div>`;
+        modal.style.display='flex';
       });
     });
   </script>
