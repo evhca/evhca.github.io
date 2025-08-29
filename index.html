@@ -1,73 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CAS Project — Eva Tsyura & Kiara Rychen</title>
-<meta name="description" content="CAS journal by Eva Tsyura & Kiara Rychen — art, poetry, photos, and whatever our mind created." />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&family=Parisienne&display=swap" rel="stylesheet">
-<style>
-:root{
---bg: #fff9f4; /* creamy background */
---bg-accent: rgba(244,165,196,.28); /* pink mist */
---card: #ffffff; /* card background */
---ink: #2a2024; /* main text */
---muted: #7a6b71; /* secondary text */
---accent: #f4a5c4; /* dusty pink */
---accent-deep:#e989b0; /* deeper pink */
---border: #f2d9e2; /* soft pink border */
---max: 840px; /* content width */
---radius: 22px; /* card roundness */
-}
-*{box-sizing:border-box}
-html,body{margin:0;height:100%;}
-body{
-font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-color:var(--ink);
-background:
-radial-gradient(40rem 40rem at 50% -10%, var(--bg-accent), rgba(0,0,0,0) 60%),
-radial-gradient(30rem 30rem at -10% 10%, rgba(255,182,193,.22), rgba(0,0,0,0) 60%),
-radial-gradient(30rem 30rem at 110% 20%, rgba(255,192,203,.15), rgba(0,0,0,0) 60%),
-var(--bg);
-background-attachment: fixed;
-line-height: 1.6;
-}
-a{color:inherit;text-decoration:none}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CAS Project — Eva Tsyura & Kiara Rychen</title>
+  <meta name="description" content="CAS Project by Eva Tsyura & Kiara Rychen — a creative dumpster: pictures, art & poetry." />
+  <!-- Fonts: tall condensed + elegant serif + clean sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Bebas+Neue&family=Bodoni+Moda:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f5f1ea;          /* warm cream */
+      --ink:#1f1b16;         /* deep coffee */
+      --muted:#7a7167;       /* taupe */
+      --panel:#ffffff;       /* cards */
+      --line:#e6ddcf;        /* lines */
+      --accent:#c9a27a;      /* sand */
+      --accent-deep:#a88763; /* deeper sand */
+      --max:1120px;          /* page width */
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
 
-/* Header */
-header{
-position:sticky; top:0; z-index:20;
-backdrop-filter: blur(10px);
-background: rgba(255,249,244,.86);
-border-bottom: 1px dashed var(--border);
-}
-.nav{max-width:var(--max); margin:0 auto; padding:.9rem 1rem; display:flex; align-items:center; justify-content:space-between; gap:1rem}
-.brand{display:flex; align-items:baseline; gap:.6rem}
-.brand .script{font-family:Parisienne, cursive; font-size:2rem; color:var(--accent-deep)}
-.brand .title{font-family: "Playfair Display", Georgia, serif; font-weight:700; font-size:1.4rem}
-.byline{font-size:.95rem; color:var(--muted)}
-.icons{font-size:1.1rem}
+    /* Header */
+    header{position:sticky;top:0;z-index:20;background:rgba(245,241,234,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+    .nav{max-width:var(--max);margin:0 auto;padding:.9rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{display:flex;flex-direction:column}
+    .brand .kicker{font-family:"Bebas Neue",system-ui;letter-spacing:.06em;font-size:1rem;color:var(--accent-deep)}
+    .brand .title{font-family:"Bodoni Moda",serif;font-weight:700;font-size:1.6rem;letter-spacing:.3px}
+    .by{color:var(--muted);font-size:.95rem}
+    .links{display:flex;gap:.8rem;align-items:center}
+    .btn{border:1px solid var(--line);background:#fff;padding:.5rem .8rem;border-radius:999px;font-size:.85rem}
 
-/* Main wrapper */
-.wrap{max-width:var(--max); margin:1.2rem auto 3rem; padding:0 1rem}
+    /* Wrapper */
+    .wrap{max-width:var(--max);margin:1.2rem auto 3rem;padding:0 1rem}
 
-/* Intro banner */
-.hero{position:relative; overflow:hidden; border:1px solid var(--border); border-radius:calc(var(--radius) + 6px); background:linear-gradient(180deg, #fff, #fff9f7); box-shadow:0 16px 42px rgba(0,0,0,.06)}
-.hero-inner{padding:1.6rem 1.2rem; text-align:center}
-.hero h1{margin:.2rem 0; font-family:"Playfair Display", Georgia, serif; font-size:2.2rem; letter-spacing:.2px}
-.hero p{margin:.35rem 0; color:var(--muted)}
-.hero .ribbon{position:absolute; inset:auto -40px auto auto; top:14px; transform:rotate(12deg); background:var(--accent); color:#fff; padding:.25rem .85rem; border-radius:999px; font-weight:600; font-size:.85rem; box-shadow: 0 6px 20px rgba(244,165,196,.45)}
-.hero .bows{position:absolute; left:8px; top:6px; font-size:1.3rem; opacity:.9}
+    /* Hero Collage */
+    .hero{position:relative;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:linear-gradient(180deg,#fff,#fbf8f3);box-shadow:0 18px 55px rgba(0,0,0,.06)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:1rem;padding:1rem}
+    .hero-left{position:relative;min-height:380px}
+    .tile{position:absolute;inset:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 12px 30px rgba(0,0,0,.06)}
+    .tile img{width:100%;height:100%;object-fit:cover}
+    .tile.a{inset:0 32% 12% 0}
+    .tile.b{inset:18% 0 0 44%;transform:rotate(-2.5deg)}
+    .overlay-word{position:absolute;left:6%;bottom:6%;font-family:"Bebas Neue";font-size:min(12vw,82px);letter-spacing:.03em;line-height:1;color:#ffffffd6;text-shadow:0 8px 28px rgba(0,0,0,.35);mix-blend-mode:multiply;user-select:none}
+    .hero-right{display:flex;flex-direction:column;justify-content:center;padding:1rem}
+    .h1{font-family:"Bodoni Moda",serif;font-size:2.3rem;line-height:1.2;margin:.2rem 0 .4rem}
+    .lead{color:var(--muted);margin:.2rem 0 1rem}
+    .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;padding:.45rem 0;overflow:hidden}
+    .ticker-inner{display:flex;gap:2rem;white-space:nowrap;animation:mar 25s linear infinite}
+    @keyframes mar{to{transform:translateX(-50%)}}
+    .tick{font-family:"Bebas Neue";letter-spacing:.06em;color:#7c6e61;font-size:1.05rem}
 
-/* Feed */
-.feed{display:flex; flex-direction:column; gap:1.2rem; margin-top:1.4rem}
+    /* Sections */
+    .section{margin:2.2rem 0}
+    .section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1rem}
+    .section h2{font-family:"Bodoni Moda",serif;font-size:1.6rem;margin:0}
+    .section p{color:var(--muted);margin:.2rem 0 0}
 
-/* Card */
-.card{position:relative; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:0 12px 34px rgba(0,0,0,.05); overflow:hidden}
-.card:before{ /* scalloped top edge */
-content:""; position:absolute; inset:0 0 auto 0; height:18px;
-background:
-radial-gradient(12px 12px at 12px 18px, var(--accent) 11px, transparent 12px) 0 -6px/24px 24px repeat-x;
-opacity:.12; pointer-events:none;
-}
-.card .media img{display:block; width:100%; height:auto}
+    /* Editorial Grid */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+    .card{grid-column:span 6;border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden;box-shadow:0 12px 36px rgba(0,0,0,.05);position:relative}
+    .card.tall{grid-column:span 12}
+    .cap{padding:1rem;border-top:1px solid var(--line)}
+    .eyebrow{font-family:"Bebas Neue";letter-spacing:.06em;font-size:.95rem;color:var(--accent-deep)}
+    .title{font-family:"Bodoni Moda";font-weight:700;font-size:1.3rem;margin:.15rem 0}
+    .meta{color:var(--muted);font-size:.94rem}
+    .imgbox{position:relative}
+    .imgbox .lbl{position:absolute;inset:auto 10px 10px auto;background:#000;color:#fff;padding:.2rem .5rem;border-radius:6px;font-family:"Bebas Neue";letter-spacing:.06em;font-size:1rem;opacity:.9}
+    .imgbox .big{position:absolute;left:6%;top:6%;font-family:"Bebas Neue";font-size:clamp(28px,8vw,72px);color:#fff;text-shadow:0 10px 36px rgba(0,0,0,.45);mix-blend-mode:multiply;pointer-events:none;opacity:.9}
+
+    .poem{font-family:"Bodoni Moda",serif;font-size:1.06rem;line-height:1.9;white-space:pre-wrap}
+    .poem.excerpt{max-height:8.5rem;overflow:hidden;position:relative}
+    .poem.excerpt:after{content:"";position:absolute;inset:auto 0 0 0;height:3rem;background:linear-gradient(180deg, rgba(255,255,255,0), #fff)}
+    .actions{margin-top:.6rem}
+    .btn.ghost{background:#fff;border:1px solid var(--line)}
+
+    @media(min-width:960px){
+      .card{grid-column:span 4}
+      .card.tall{grid-column:span 8}
+    }
+
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55);z-index:50}
+    .modal.open{display:flex}
+    .modal-box{background:#fff;border-radius:18px;max-width:min(900px,92vw);max-height:85vh;overflow:auto;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+    .modal-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.8rem 1rem;border-bottom:1px solid var(--line)}
+    .modal-body{padding:1rem}
+    .close{border:1px solid var(--line);background:#fff;border-radius:10px;padding:.4rem .7rem;cursor:pointer}
+
+    footer{margin:2.6rem 0 4rem;text-align:center;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="brand">
+        <div class="kicker">creative dumpster</div>
+        <div class="title">CAS Project</div>
+        <div class="by">by <strong>Eva Tsyura</strong> & <strong>Kiara Rychen</strong> — pictures · art · poetry · anything creative</div>
+      </div>
+      <div class="links">
+        <a class="btn" href="#work">Art</a>
+        <a class="btn" href="#poems">Poems</a>
+        <a class="btn" href="#photos">Photos</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <!-- Hero Collage -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="tile a"><img src="https://images.unsplash.com/photo-1511207538754-e8555f2bc187?q=80&w=1600&auto=format&fit=crop" alt="cream texture"></div>
+          <div class="tile b"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1600&auto=format&fit=crop" alt="freckles portrait"></div>
+          <div class="overlay-word" aria-hidden="true">CAS</div>
+        </div>
+        <div class="hero-right">
+          <h1 class="h1">An editorial-style scrapbook of our work</h1>
+          <p class="lead">Minimal, collage layouts with big type on images. Save, scan, and browse our latest creative dumps — from film photos to messy sketches to little poems.</p>
+          <div class="ticker"><div class="ticker-inner">
+            <div class="tick">editorial • collage • serif headlines • condensed labels • warm beige •</div>
+            <div class="tick">editorial • collage • serif headlines • condensed labels • warm beige •</div>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured / Work -->
+    <section id="work" class="section">
+      <div class="section-head">
+        <h2>Featured work</h2>
+        <p>Fresh dumps from class & weekends</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="imgbox">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1600&auto=format&fit=crop" alt="portrait">
+            <div class="lbl">ART</div>
+            <div class="big">FRECKLES</div>
+          </div>
+          <div class="cap">
+            <div class="eyebrow">portrait study</div>
+            <div class="title">Freckles in soft light</div>
+            <div class="meta">Eva · charcoal + digital grain</div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="imgbox">
+            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1600&auto=format&fit=crop" alt="notebook">
+            <div class="lbl">NOTES</div>
+            <div class="big">INK</div>
+          </div>
+          <div class="cap">
+            <div class="eyebrow">sketchbook</div>
+            <div class="title">Cream & ink compositions</div>
+            <div class="meta">Kiara · mixed media</div>
+          </div>
+        </article>
+        <article class="card tall">
+          <div class="imgbox">
+            <img src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=2000&auto=format&fit=crop" alt="texture">
+            <div class="lbl">COLLAGE</div>
+            <div class="big">MILK</div>
+          </div>
+          <div class="cap">
+            <div class="eyebrow">collage</div>
+            <div class="title">Milk bath textures</div>
+            <div class="meta">Eva & Kiara</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Poems -->
+    <section id="poems" class="section">
+      <div class="section-head">
+        <h2>Poems</h2>
+        <p>Short pieces — open to read full</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="cap">
+            <div class="eyebrow">poem</div>
+            <div class="title">after midnight</div>
+            <div class="poem excerpt">the coast hums in sepia
+car radio tasting like cherry
+we press our names into wet air
+so the night won’t forget us.
+
+all the motels bloom pink
+and the moon wears a velvet bow…</div>
+            <div class="actions"><a class="btn ghost" data-open="poem-1">Read</a></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="cap">
+            <div class="eyebrow">poem</div>
+            <div class="title">bow on a breezy day</div>
+            <div class="poem excerpt">today my hair forgets to stay
+so i let the wind dress me.
+a ribbon learns my name
+and ties the hours together…</div>
+            <div class="actions"><a class="btn ghost" data-open="poem-2">Read</a></div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Hidden full poems -->
+      <template id="poem-1">the coast hums in sepia
+car radio tasting like cherry
+we press our names into wet air
+so the night won’t forget us.
+
+all the motels bloom pink
+and the moon wears a velvet bow.
+we are the slow part of a song,
+hand in hand with the ghost
+of a brighter yesterday.
+
+if this is forever,
+let it be soft—
+like a ribbon
+on the wind.</template>
+
+      <template id="poem-2">today my hair forgets to stay
+so i let the wind dress me.
+a ribbon learns my name
+and ties the hours together.
+
+we write our plans in pencil
+so the clouds can edit.
+when the sun blushes pink,
+i promise to show up
+for the gentle things.</template>
+    </section>
+
+    <!-- Photos -->
+    <section id="photos" class="section">
+      <div class="section-head">
+        <h2>Photo notes</h2>
+        <p>Film & phone shots with neutral grading</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="imgbox">
+            <img src="https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=1600&auto=format&fit=crop" alt="bw woman">
+            <div class="lbl">PHOTO</div>
+            <div class="big">NOIR</div>
+          </div>
+          <div class="cap"><div class="eyebrow">bw</div><div class="title">Helmut mood</div><div class="meta">Tri-X sim · 1/125s</div></div>
+        </article>
+        <article class="card">
+          <div class="imgbox">
+            <img src="https://images.unsplash.com/photo-1517467139951-f5a925c9f9de?q=80&w=1600&auto=format&fit=crop" alt="hands">
+            <div class="lbl">DETAIL</div>
+            <div class="big">GRAIN</div>
+          </div>
+          <div class="cap"><div class="eyebrow">detail</div><div class="title">Hands & grain</div><div class="meta">f/2.0 · ISO 200</div></div>
+        </article>
+        <article class="card">
+          <div class="imgbox">
+            <img src="https://images.unsplash.com/photo-1504198266285-165a9c59a32e?q=80&w=1600&auto=format&fit=crop" alt="coffee">
+            <div class="lbl">STILL</div>
+            <div class="big">MORNING</div>
+          </div>
+          <div class="cap"><div class="eyebrow">still</div><div class="title">Morning beige</div><div class="meta">iPhone · Portra preset</div></div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <small>© <span id="y"></span> Eva Tsyura & Kiara Rychen — CAS Project · creative dumpster</small>
+    </footer>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Preview">
+    <div class="modal-box">
+      <div class="modal-head">
+        <strong id="modalTitle">Preview</strong>
+        <button class="close" id="close">Close</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Simple modal for poems
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modalBody');
+    const modalTitle = document.getElementById('modalTitle');
+    document.getElementById('close').onclick = ()=> modal.classList.remove('open');
+    modal.addEventListener('click', e=>{ if(e.target===modal) modal.classList.remove('open'); });
+
+    document.querySelectorAll('[data-open]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const id = btn.getAttribute('data-open');
+        const tpl = document.getElementById(id);
+        if(!tpl) return;
+        const title = btn.closest('.cap').querySelector('.title')?.textContent || 'Poem';
+        modalTitle.textContent = title;
+        modalBody.innerHTML = `<div class="poem">${tpl.innerHTML.trim()}</div>`;
+        modal.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>
