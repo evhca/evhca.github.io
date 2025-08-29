@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://evhca.github.io/sitemap.xml
