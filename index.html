@@ -1,70 +1,73 @@
 <!DOCTYPE html>
-<div class="actions">
-<button class="btn primary read-poem" data-title="bow on a breezy day" data-text="today my hair forgets to stay\nso i let the wind dress me.\na ribbon learns my name\nand ties the hours together.\n\nwe write our plans in pencil\nso the clouds can edit.\nwhen the sun blushes pink,\ni promise to show up\nfor the gentle things.">Read poem</button>
-<button class="btn copy-link">Copy link</button>
-</div>
-</div>
-</article>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CAS Project — Eva Tsyura & Kiara Rychen</title>
+<meta name="description" content="CAS journal by Eva Tsyura & Kiara Rychen — art, poetry, photos, and whatever our mind created." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&family=Parisienne&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg: #fff9f4; /* creamy background */
+--bg-accent: rgba(244,165,196,.28); /* pink mist */
+--card: #ffffff; /* card background */
+--ink: #2a2024; /* main text */
+--muted: #7a6b71; /* secondary text */
+--accent: #f4a5c4; /* dusty pink */
+--accent-deep:#e989b0; /* deeper pink */
+--border: #f2d9e2; /* soft pink border */
+--max: 840px; /* content width */
+--radius: 22px; /* card roundness */
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;}
+body{
+font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+color:var(--ink);
+background:
+radial-gradient(40rem 40rem at 50% -10%, var(--bg-accent), rgba(0,0,0,0) 60%),
+radial-gradient(30rem 30rem at -10% 10%, rgba(255,182,193,.22), rgba(0,0,0,0) 60%),
+radial-gradient(30rem 30rem at 110% 20%, rgba(255,192,203,.15), rgba(0,0,0,0) 60%),
+var(--bg);
+background-attachment: fixed;
+line-height: 1.6;
+}
+a{color:inherit;text-decoration:none}
 
-</section>
+/* Header */
+header{
+position:sticky; top:0; z-index:20;
+backdrop-filter: blur(10px);
+background: rgba(255,249,244,.86);
+border-bottom: 1px dashed var(--border);
+}
+.nav{max-width:var(--max); margin:0 auto; padding:.9rem 1rem; display:flex; align-items:center; justify-content:space-between; gap:1rem}
+.brand{display:flex; align-items:baseline; gap:.6rem}
+.brand .script{font-family:Parisienne, cursive; font-size:2rem; color:var(--accent-deep)}
+.brand .title{font-family: "Playfair Display", Georgia, serif; font-weight:700; font-size:1.4rem}
+.byline{font-size:.95rem; color:var(--muted)}
+.icons{font-size:1.1rem}
 
-<footer>
-<small>© <span id="y"></span> Eva Tsyura & Kiara Rychen · made with ♡ for CAS</small>
-</footer>
-</main>
+/* Main wrapper */
+.wrap{max-width:var(--max); margin:1.2rem auto 3rem; padding:0 1rem}
 
-<!-- Modal for images & poems -->
-<div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Preview">
-<div class="modal-box">
-<div class="modal-head">
-<strong id="modalTitle">Preview</strong>
-<button class="close" id="close">Close</button>
-</div>
-<div class="modal-body" id="modalBody"></div>
-</div>
-</div>
+/* Intro banner */
+.hero{position:relative; overflow:hidden; border:1px solid var(--border); border-radius:calc(var(--radius) + 6px); background:linear-gradient(180deg, #fff, #fff9f7); box-shadow:0 16px 42px rgba(0,0,0,.06)}
+.hero-inner{padding:1.6rem 1.2rem; text-align:center}
+.hero h1{margin:.2rem 0; font-family:"Playfair Display", Georgia, serif; font-size:2.2rem; letter-spacing:.2px}
+.hero p{margin:.35rem 0; color:var(--muted)}
+.hero .ribbon{position:absolute; inset:auto -40px auto auto; top:14px; transform:rotate(12deg); background:var(--accent); color:#fff; padding:.25rem .85rem; border-radius:999px; font-weight:600; font-size:.85rem; box-shadow: 0 6px 20px rgba(244,165,196,.45)}
+.hero .bows{position:absolute; left:8px; top:6px; font-size:1.3rem; opacity:.9}
 
-<button class="to-top" id="toTop" title="Back to top">↑</button>
+/* Feed */
+.feed{display:flex; flex-direction:column; gap:1.2rem; margin-top:1.4rem}
 
-<script>
-// Year
-document.getElementById('y').textContent = new Date().getFullYear();
-
-// Modal controls
-const modal = document.getElementById('modal');
-const modalBody = document.getElementById('modalBody');
-const modalTitle = document.getElementById('modalTitle');
-const openImage = (src)=>{ modalTitle.textContent='Artwork'; modalBody.innerHTML = `<img src="${src}" alt="">`; modal.classList.add('open'); };
-const openPoem = (title, text)=>{ modalTitle.textContent = title; modalBody.innerHTML = `<div class="poem" style="font-family: 'Playfair Display', Georgia, serif; font-size:1.1rem; line-height:1.8; white-space:pre-wrap">${text}</div>`; modal.classList.add('open'); };
-document.getElementById('close').onclick = ()=> modal.classList.remove('open');
-modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.classList.remove('open'); });
-
-// Bind buttons
-document.querySelectorAll('.view-image').forEach(btn=>{
-btn.addEventListener('click', ()=> openImage(btn.dataset.src));
-});
-document.querySelectorAll('.read-poem').forEach(btn=>{
-btn.addEventListener('click', ()=> openPoem(btn.dataset.title, btn.dataset.text));
-});
-
-// Copy-permalink (dummy: copies current page + anchor by title)
-document.querySelectorAll('.copy-link').forEach((btn)=>{
-btn.addEventListener('click', ()=>{
-const card = btn.closest('.card');
-const title = card.querySelector('.title')?.textContent?.trim().toLowerCase().replace(/[^a-z0-9]+/g,'-') || '';
-const url = `${location.origin}${location.pathname}#${title}`;
-navigator.clipboard.writeText(url).then(()=>{
-btn.textContent = 'Copied ✓'; setTimeout(()=> btn.textContent='Copy link', 1200);
-});
-});
-});
-
-// Back to top
-const toTop = document.getElementById('toTop');
-toTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
-window.addEventListener('scroll', ()=>{
-toTop.style.display = window.scrollY > 500 ? 'block' : 'none';
-});
-</script>
-</body>
-</html>
+/* Card */
+.card{position:relative; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:0 12px 34px rgba(0,0,0,.05); overflow:hidden}
+.card:before{ /* scalloped top edge */
+content:""; position:absolute; inset:0 0 auto 0; height:18px;
+background:
+radial-gradient(12px 12px at 12px 18px, var(--accent) 11px, transparent 12px) 0 -6px/24px 24px repeat-x;
+opacity:.12; pointer-events:none;
+}
+.card .media img{display:block; width:100%; height:auto}
